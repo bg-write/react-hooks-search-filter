@@ -30,7 +30,7 @@ const EmployeeSearch = () => {
 	};
 
 	console.log(searchInput);
-	console.log(filteredData);
+	console.log(filteredResults); // fix delay
 
 	return (
 		<>
@@ -46,14 +46,17 @@ const EmployeeSearch = () => {
 					/>
 				</div>
 				<div id="search-results">
-					{searchInput.length >= 1 &&
-						filteredResults.map((item) => {
+					{searchInput.length >= 0 &&
+						filteredData.map((item) => {
 							return (
 								<div key={item.id}>
 									<div>{item.fullName}</div>
 								</div>
 							);
 						})}
+				</div>
+				<div>
+					{filteredData.length === 0 ? <div>No Matching Employee</div> : null}
 				</div>
 			</StyledEmployeeList>
 		</>
