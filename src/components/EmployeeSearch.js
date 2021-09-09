@@ -5,12 +5,17 @@ import styled from 'styled-components';
 const StyledEmployeeList = styled.div`
 	display: flex;
 	flex-flow: column;
+	justify-content: center;
 	margin: 0 auto;
 	padding: 1rem;
 	border: 2px solid #000;
 	border-radius: 20px;
 	background: #eee;
 	max-width: 500px;
+
+	#search-results {
+		padding-top: 1rem;
+	}
 `;
 
 const EmployeeSearch = () => {
@@ -54,8 +59,6 @@ const EmployeeSearch = () => {
 								</div>
 							);
 						})}
-				</div>
-				<div>
 					{filteredData.length === 0 ? <div>No Matching Employee</div> : null}
 				</div>
 			</StyledEmployeeList>
