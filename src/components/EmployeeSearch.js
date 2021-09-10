@@ -12,6 +12,9 @@ const StyledEmployeeList = styled.div`
 	border-radius: 20px;
 	background: #eee;
 	max-width: 500px;
+	#search-input input {
+		width: 50%;
+	}
 	#search-results {
 		padding-top: 1rem;
 	}
@@ -46,7 +49,7 @@ const EmployeeSearch = () => {
 				</div>
 				<div id="search-input">
 					<input
-						placeholder="Search Employees ..."
+						placeholder="Type to search employees ..."
 						onChange={(e) => searchItems(e.target.value)}
 					/>
 				</div>
