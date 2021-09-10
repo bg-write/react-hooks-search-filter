@@ -12,9 +12,11 @@ const StyledEmployeeList = styled.div`
 	border-radius: 20px;
 	background: #eee;
 	max-width: 500px;
-
 	#search-results {
 		padding-top: 1rem;
+	}
+	#no-match-message {
+		color: red;
 	}
 `;
 
@@ -30,7 +32,6 @@ const EmployeeSearch = () => {
 
 	const searchItems = (searchValue) => {
 		setSearchInput(searchValue);
-
 		searchInput ? setFilteredResults(filteredData) : setFilteredResults(data);
 	};
 
@@ -43,7 +44,6 @@ const EmployeeSearch = () => {
 				<div id="header">
 					<h1>Employee Search</h1>
 				</div>
-
 				<div id="search-input">
 					<input
 						placeholder="Search Employees ..."
@@ -54,12 +54,14 @@ const EmployeeSearch = () => {
 					{searchInput.length >= 0 &&
 						filteredData.map((item) => {
 							return (
-								<div key={item.id}>
+								<div key={item.id} id="employee-name">
 									<div>{item.fullName}</div>
 								</div>
 							);
 						})}
-					{filteredData.length === 0 ? <div>No Matching Employee</div> : null}
+					{filteredData.length === 0 ? (
+						<div id="no-match-message">No Matching Employee</div>
+					) : null}
 				</div>
 			</StyledEmployeeList>
 		</>
